@@ -199,9 +199,15 @@ h2 {
     margin: 0;
 }
 
-/* --- POPUP (TOOLTIP) KOJI SE OTVARA NA HOVER --- */
+/* --- POPUP (TOOLTIP) ZA SVAKU POZICIJU POSEBNO --- */
+.timeline-item {
+    position: relative;
+}
+
 .popup-box {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.95);
     width: 280px;
     background-color: #1e293b;
     border: 1px solid #38bdf8;
@@ -211,25 +217,30 @@ h2 {
     z-index: 100;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
     text-align: left;
 }
 
+/* Prve dve stavke (Tanjug i UNA) - prozorčić ide DESNO */
+.timeline-wrapper .timeline-item:nth-child(1) .popup-box,
+.timeline-wrapper .timeline-item:nth-child(2) .popup-box {
+    left: calc(100% + 15px);
+    right: auto;
+}
+
+/* Druge dve stavke (Startit i Ringier) - prozorčić ide LEVO */
+.timeline-wrapper .timeline-item:nth-child(3) .popup-box,
+.timeline-wrapper .timeline-item:nth-child(4) .popup-box {
+    right: calc(100% + 15px);
+    left: auto;
+}
+
+/* Aktiviranje animacije na hover */
 .timeline-item:hover .popup-box {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
-}
-
-.timeline-item.top .popup-box {
-    bottom: 75px;
-    transform: translateY(10px);
-}
-
-.timeline-item.bottom .popup-box {
-    top: 75px;
-    transform: translateY(-10px);
+    transform: translateY(-50%) scale(1);
 }
 
 .popup-box ul {
