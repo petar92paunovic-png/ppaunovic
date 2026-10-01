@@ -253,66 +253,65 @@ h2 {
     margin-bottom: 0.4rem;
 }
 
-/* Glavni bento kontejner */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Tačno 3 kolone */
+    grid-template-rows: repeat(5, 180px);    /* 5 redova */
     gap: 1.5rem;
-    grid-auto-rows: 200px; /* Osnovna visina redova */
 }
 
-/* Definisanje pozicija za svaki element ponaosob */
+/* 1. red: v1 (prva polovina - zauzima 1. i 2. red), s1, s2 */
 .bento-item.v1 {
     grid-column: 1 / 2;
-    grid-row: span 2; /* Zauzima 2 reda vertikalno */
+    grid-row: 1 / 3;
 }
-
-.bento-item.v2 {
-    grid-column: 2 / 4; /* Širi se preko 2 kolone gore */
-    grid-row: span 1;
-}
-
-.bento-item.h1 {
-    grid-column: 1 / 2;
-    grid-row: span 1;
-}
-
-.bento-item.h2 {
-    grid-column: 2 / 3;
-    grid-row: span 1;
-}
-
-.bento-item.h3 {
-    grid-column: 3 / 4;
-    grid-row: span 1;
-}
-
 .bento-item.s1 {
-    grid-column: 1 / 2;
-    grid-row: span 1;
-}
-
-.bento-item.s2 {
     grid-column: 2 / 3;
-    grid-row: span 1;
+    grid-row: 1 / 2;
 }
-
-.bento-item.s3 {
+.bento-item.s2 {
     grid-column: 3 / 4;
-    grid-row: span 1;
+    grid-row: 1 / 2;
 }
 
-.bento-item.s4 {
+/* 2. red: druga polovina v1 (pokrivena gornjim spanom), h1 (u 2. koloni, 2. i 3. red) */
+.bento-item.h1 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+/* (U 3. koloni u 2. redu nemaš eksplicitno pomenuto, ako treba tu da stoji neki element, javi, za sada je prazno ili ga raspored popunjava) */
+
+/* 3. red: h2 (u 1. i 2. koloni, 3. red) i prva polovina v2 */
+.bento-item.h2 {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+.bento-item.v2 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 5; /* v2 zauzima 3. i 4. red u 3. koloni */
+}
+
+/* 4. red: s3 (1. kolona), s4 (2. kolona) i druga polovina v2 (pokrivena spanom gore) */
+.bento-item.s3 {
     grid-column: 1 / 2;
-    grid-row: span 1;
+    grid-row: 4 / 5;
+}
+.bento-item.s4 {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
 }
 
+/* 5. red: s5 (1. kolona) i h3 (2. i 3. kolona) */
 .bento-item.s5 {
-    grid-column: 2 / 4; /* Širi se horizontalno dole */
-    grid-row: span 1;
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+}
+.bento-item.h3 {
+    grid-column: 2 / 4;
+    grid-row: 5 / 6;
 }
 
-/* Osnovni stilovi za kartice i slike da se ne bi razvlačile */
+/* Osnovni stilovi za kartice */
 .bento-item {
     position: relative;
     border-radius: 12px;
@@ -325,21 +324,23 @@ h2 {
 .bento-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Sprečava deformisanje slika */
+    object-fit: cover;
     display: block;
 }
 
-/* Responzivnost za mobilne telefone (da prelazi u jednu kolonu) */
+/* Responzivnost za mobilne telefone */
 @media (max-width: 768px) {
     .bento-grid {
+        display: flex;
+        flex-direction: column;
         grid-template-columns: 1fr;
-        grid-auto-rows: auto;
     }
-    .bento-item, .bento-item.v1, .bento-item.v2, .bento-item.h1, .bento-item.h2, .bento-item.h3, .bento-item.s1, .bento-item.s2, .bento-item.s3, .bento-item.s4, .bento-item.s5 {
+    .bento-item {
+        height: 250px;
         grid-column: auto !important;
         grid-row: auto !important;
-        height: 250px;
     }
+}
 }
 /* Nagrade */
 .awards-list {
