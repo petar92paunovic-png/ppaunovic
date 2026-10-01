@@ -343,7 +343,7 @@ h2 {
 .cube-container {
     width: 320px;
     height: 320px;
-    margin: 5rem auto 2rem auto;
+    margin: 7rem auto 2rem auto;
     perspective: 1200px;
     cursor: grab;
     user-select: none;
