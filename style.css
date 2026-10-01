@@ -1,4 +1,4 @@
-/* Osnovni stilovi i pozadina sajta */
+/* --- OSNOVNI STILOVI --- */
 * {
     margin: 0;
     padding: 0;
@@ -86,13 +86,12 @@ h2 {
     padding-bottom: 0.5rem;
 }
 
-/* --- HORIZONTALNI TIMELINE --- */
+/* --- HORIZONTALNI TIMELINE (BEZ SKROLERA I SA HOVER EFEKTOM) --- */
 .timeline-container {
     position: relative;
     width: 100%;
-    margin: 4rem 0;
-    overflow-x: auto;
-    padding: 3rem 0;
+    margin: 5rem 0;
+    padding: 2rem 0;
 }
 
 .timeline-wrapper {
@@ -100,15 +99,16 @@ h2 {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
+/* Centralna linija */
 .timeline-line {
     position: absolute;
     width: 100%;
-    height: 4px;
+    height: 3px;
     background-color: #38bdf8;
     top: 50%;
     transform: translateY(-50%);
@@ -117,73 +117,129 @@ h2 {
 
 .timeline-item {
     position: relative;
-    width: 20%;
-    cursor: pointer;
+    width: 22%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.2s ease;
 }
 
-.timeline-item:hover {
-    transform: scale(1.05);
-}
-
+/* Pozicija iznad linije */
 .timeline-item.top {
-    bottom: 60px;
+    bottom: 40px;
 }
 
-.timeline-item.top .dot {
+.timeline-item.top .dot-container {
     position: absolute;
-    bottom: -67px;
-    width: 14px;
-    height: 14px;
-    background-color: #0f172a;
-    border: 3px solid #38bdf8;
-    border-radius: 50%;
-    z-index: 5;
+    bottom: -48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Pozicija ispod linije */
 .timeline-item.bottom {
-    top: 60px;
+    top: 40px;
 }
 
-.timeline-item.bottom .dot {
+.timeline-item.bottom .dot-container {
     position: absolute;
-    top: -67px;
-    width: 14px;
-    height: 14px;
+    top: -48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Krug i godina uz liniju */
+.dot {
+    width: 12px;
+    height: 12px;
     background-color: #0f172a;
     border: 3px solid #38bdf8;
     border-radius: 50%;
     z-index: 5;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.timeline-item .content {
-    background: transparent;
-    padding: 0;
+.timeline-item:hover .dot {
+    background-color: #38bdf8;
+    transform: scale(1.3);
 }
 
 .timeline-item .year {
     color: #38bdf8;
     font-weight: bold;
-    font-size: 0.85rem;
-    display: block;
-    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+
+.timeline-item.bottom .year {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+/* Sadržaj (funkcija i kompanija) */
+.timeline-item .content {
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
 }
 
 .timeline-item h3 {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #f8fafc;
     margin-bottom: 0.1rem;
     line-height: 1.2;
 }
 
 .timeline-item p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #94a3b8;
     margin: 0;
+}
+
+/* --- POPUP (TOOLTIP) KOJI SE OTVARA NA HOVER --- */
+.popup-box {
+    position: absolute;
+    width: 280px;
+    background-color: #1e293b;
+    border: 1px solid #38bdf8;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    text-align: left;
+}
+
+.timeline-item:hover .popup-box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.timeline-item.top .popup-box {
+    bottom: 75px;
+    transform: translateY(10px);
+}
+
+.timeline-item.bottom .popup-box {
+    top: 75px;
+    transform: translateY(-10px);
+}
+
+.popup-box ul {
+    padding-left: 1rem;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+}
+
+.popup-box li {
+    margin-bottom: 0.4rem;
 }
 
 /* --- BENTO GRID PORTFOLIO --- */
@@ -237,60 +293,6 @@ h2 {
     padding: 1.2rem;
     border-radius: 8px;
     margin-bottom: 1rem;
-}
-
-/* Modal Prozorče */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #1e293b;
-    border: 1px solid #334155;
-    padding: 2.5rem;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 600px;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 1.8rem;
-    color: #94a3b8;
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    color: #f8fafc;
-}
-
-#modal-title {
-    color: #38bdf8;
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-}
-
-#modal-bullets {
-    padding-left: 1.2rem;
-    color: #cbd5e1;
-}
-
-#modal-bullets li {
-    margin-bottom: 0.6rem;
-    font-size: 0.95rem;
 }
 
 /* Footer */
