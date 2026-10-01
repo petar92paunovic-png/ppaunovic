@@ -253,12 +253,12 @@ h2 {
     margin-bottom: 0.4rem;
 }
 
-/* --- BENTO GRID PORTFOLIO --- */
+/* --- BENTO GRID CUSTOM LAYOUT (PREMA SKICI) --- */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    grid-auto-rows: 220px;
+    grid-auto-rows: 180px; /* Osnovna visina reda za precizno uklapanje */
 }
 
 .bento-item {
@@ -275,19 +275,25 @@ h2 {
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Veća horizontalna kartica (zauzima 2 kolone) */
-.bento-item.item-large-h {
-    grid-column: span 2;
+/* Specifične pozicije sa skice */
+.bento-item.item-v-1 {
+    grid-row: span 2; /* 1. Deponija - visoka */
 }
 
-/* Veća vertikalna kartica (zauzima 2 reda) */
-.bento-item.item-large-v {
-    grid-row: span 2;
+.bento-item.item-v-2 {
+    grid-row: span 2; /* 2. Nastić - visoka */
 }
 
-/* Manja vertikalna kartica (zauzima 2 reda) */
-.bento-item.item-small-v {
-    grid-row: span 2;
+.bento-item.item-h-3 {
+    grid-column: span 2; /* 3. Saobraćaj - široka */
+}
+
+.bento-item.item-h-4 {
+    grid-column: span 2; /* 4. Nasip - široka */
+}
+
+.bento-item.item-h-5 {
+    grid-column: span 2; /* 5. Vašar - široka */
 }
 
 .bento-item:hover {
@@ -309,6 +315,7 @@ h2 {
     transform: scale(1.05);
 }
 
+/* Overlay efekat sa klizanjem teksta */
 .bento-overlay {
     position: absolute;
     bottom: 0;
@@ -347,15 +354,17 @@ h2 {
     opacity: 1;
 }
 
-/* Responzivnost za manje ekrane */
+/* Prilagođavanje za manje ekrane */
 @media (max-width: 900px) {
     .bento-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 200px;
     }
-    .bento-item.item-large-h,
-    .bento-item.item-large-v,
-    .bento-item.item-small-v {
+    .bento-item.item-v-1,
+    .bento-item.item-v-2,
+    .bento-item.item-h-3,
+    .bento-item.item-h-4,
+    .bento-item.item-h-5 {
         grid-column: span 1;
         grid-row: span 1;
     }
