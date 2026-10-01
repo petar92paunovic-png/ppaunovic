@@ -55,11 +55,12 @@ header {
     color: #38bdf8;
 }
 
-/* Sekcije i kontejneri */
+/* Sekcije i kontejneri (Smanjeni razmaci između sekcija) */
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 6rem 2rem 2rem 2rem;
+    padding: 3.5rem 2rem 1.5rem 2rem;
+    margin-bottom: 1rem;
 }
 
 .hero {
@@ -338,11 +339,11 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* --- 3D KOCKA SA SLOBODNOM ROTACIJOM --- */
+/* --- 3D KOCKA SA SLOBODNOM ROTACIJOM (Odaljena od teksta iznad) --- */
 .cube-container {
     width: 320px;
     height: 320px;
-    margin: 2rem auto;
+    margin: 3.5rem auto 2rem auto;
     perspective: 1200px;
     cursor: grab;
     user-select: none;
@@ -353,7 +354,6 @@ h2 {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    /* Početni ugao da se odmah vidi 3D dubina */
     transform: rotateX(-25deg) rotateY(15deg);
 }
 
@@ -393,6 +393,7 @@ h2 {
     .cube-container {
         width: 260px;
         height: 260px;
+        margin: 2.5rem auto 1.5rem auto;
     }
     .cube-face {
         width: 260px;
@@ -442,21 +443,6 @@ h2 {
         grid-column: auto !important;
         grid-row: auto !important;
     }
-    .cube-container {
-        width: 250px;
-        height: 250px;
-    }
-    .cube-face {
-        width: 250px;
-        height: 250px;
-        padding: 1.5rem;
-    }
-    .cube-face.front  { transform: rotateY(0deg) translateZ(125px); }
-    .cube-face.back   { transform: rotateY(180deg) translateZ(125px); }
-    .cube-face.right  { transform: rotateY(90deg) translateZ(125px); }
-    .cube-face.left   { transform: rotateY(-90deg) translateZ(125px); }
-    .cube-face.top    { transform: rotateX(90deg) translateZ(125px); }
-    .cube-face.bottom { transform: rotateX(-90deg) translateZ(125px); }
 }
 
 /* --- FOOTER --- */
