@@ -41,40 +41,80 @@
             
             <div class="timeline-wrapper">
                 <!-- 1. Tanjug (Gore) -->
-                <div class="timeline-item top" onclick="openModal('tanjug')">
+                <div class="timeline-item top">
                     <div class="content">
-                        <span class="year">2024 - Present</span>
                         <h3>News Editor & Journalist</h3>
                         <p>Tanjug</p>
                     </div>
-                    <div class="dot"></div>
+                    <div class="dot-container">
+                        <div class="dot"></div>
+                        <span class="year">2024 - Present</span>
+                    </div>
+                    <div class="popup-box">
+                        <ul>
+                            <li>Edit up to 20 hours of news programming each week, including hour-long bulletins.</li>
+                            <li>Lead a team of television journalists and take editorial responsibility for their output.</li>
+                            <li>Assign and develop stories and coordinate agency reporters and correspondents to provide live contributions and regional perspectives.</li>
+                            <li>Produce lead stories and report from major events in Serbia and abroad.</li>
+                            <li>Conduct studio and on-location interviews with senior officials.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 2. UNA (Dole) -->
-                <div class="timeline-item bottom" onclick="openModal('una')">
-                    <div class="dot"></div>
-                    <div class="content">
+                <div class="timeline-item bottom">
+                    <div class="popup-box">
+                        <ul>
+                            <li>Led a newsroom team and oversaw the production and editorial quality.</li>
+                            <li>Coordinated journalists and production teams throughout the production process.</li>
+                            <li>Collaborated with marketing and sales teams on promotion and sponsorships.</li>
+                            <li>Held final editorial responsibility for programme content, quality and running time.</li>
+                        </ul>
+                    </div>
+                    <div class="dot-container">
                         <span class="year">2021 - 2024</span>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="content">
                         <h3>Deputy Editor</h3>
                         <p>UNA (Regional Broadcaster)</p>
                     </div>
                 </div>
 
                 <!-- 3. Startit (Gore) -->
-                <div class="timeline-item top" onclick="openModal('startit')">
+                <div class="timeline-item top">
                     <div class="content">
-                        <span class="year">2020 - 2021</span>
                         <h3>Multimedia Business Journalist</h3>
                         <p>Startit</p>
                     </div>
-                    <div class="dot"></div>
+                    <div class="dot-container">
+                        <div class="dot"></div>
+                        <span class="year">2020 - 2021</span>
+                    </div>
+                    <div class="popup-box">
+                        <ul>
+                            <li>Covered Serbia's startup ecosystem, technology sector and digital economy.</li>
+                            <li>Translated complex business and technology topics into accessible stories.</li>
+                            <li>Produced interviews, analysis and original multimedia reporting.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 4. Ringier (Dole) -->
-                <div class="timeline-item bottom" onclick="openModal('ringier')">
-                    <div class="dot"></div>
-                    <div class="content">
+                <div class="timeline-item bottom">
+                    <div class="popup-box">
+                        <ul>
+                            <li>Produced and edited video reports and documentary series for digital platforms.</li>
+                            <li>Developed data-driven stories and led real-time social media coverage of events.</li>
+                            <li>Grew Noizz Serbia's Twitter audience by around 500 followers per day during several weeks of live protest coverage.</li>
+                            <li>Oversaw video selection, placement and editorial quality across digital editions.</li>
+                        </ul>
+                    </div>
+                    <div class="dot-container">
                         <span class="year">2015 - 2018</span>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="content">
                         <h3>Journalist</h3>
                         <p>Ringier Axel Springer</p>
                     </div>
@@ -145,7 +185,7 @@
         </div>
     </section>
 
-   <!-- Nagrade -->
+    <!-- Nagrade -->
     <section id="awards" class="container">
         <h2>Awards & Recognition</h2>
         <ul class="awards-list">
@@ -167,72 +207,5 @@
         <p>&copy; 2026 Petar Paunović. All rights reserved.</p>
     </footer>
 
-    <!-- Modal Prozorče -->
-    <div id="exp-modal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modal-title"></h3>
-            <ul id="modal-bullets"></ul>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script>
-        const experiences = {
-            tanjug: {
-                title: "News Editor and Journalist, Tanjug",
-                bullets: [
-                    "Edit up to 20 hours of news programming each week, including hour-long bulletins.",
-                    "Lead a team of television journalists and take editorial responsibility for their output.",
-                    "Assign and develop stories and coordinate agency reporters and correspondents to provide live contributions and regional perspectives.",
-                    "Produce lead stories and report from major events in Serbia and abroad.",
-                    "Conduct studio and on-location interviews with senior officials."
-                ]
-            },
-            una: {
-                title: "Deputy Editor, UNA",
-                bullets: [
-                    "Led a newsroom team and oversaw the production and editorial quality.",
-                    "Coordinated journalists and production teams throughout the production process.",
-                    "Collaborated with marketing and sales teams on promotion and sponsorships.",
-                    "Held final editorial responsibility for programme content, quality and running time."
-                ]
-            },
-            startit: {
-                title: "Multimedia Business Journalist, Startit",
-                bullets: [
-                    "Covered Serbia's startup ecosystem, technology sector and digital economy.",
-                    "Translated complex business and technology topics into accessible stories.",
-                    "Produced interviews, analysis and original multimedia reporting."
-                ]
-            },
-            ringier: {
-                title: "Journalist, Ringier Axel Springer",
-                bullets: [
-                    "Produced and edited video reports and documentary series for digital platforms.",
-                    "Developed data-driven stories and led real-time social media coverage of events.",
-                    "Grew Noizz Serbia's Twitter audience by around 500 followers per day during several weeks of live protest coverage.",
-                    "Oversaw video selection, placement and editorial quality across digital editions."
-                ]
-            }
-        };
-
-        function openModal(key) {
-            const data = experiences[key];
-            document.getElementById('modal-title').innerText = data.title;
-            const ul = document.getElementById('modal-bullets');
-            ul.innerHTML = '';
-            data.bullets.forEach(bullet => {
-                const li = document.createElement('li');
-                li.innerText = bullet;
-                ul.appendChild(li);
-            });
-            document.getElementById('exp-modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('exp-modal').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
