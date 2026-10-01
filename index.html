@@ -36,59 +36,110 @@
     <!-- Horizontalni Timeline -->
     <section id="experience" class="container">
         <h2>Professional Experience</h2>
-        <div class="timeline">
+        <div class="timeline-container">
             <div class="timeline-line"></div>
             
-            <!-- 1. Tanjug (Gore) -->
-            <div class="timeline-item top" onclick="openModal('tanjug')">
-                <span class="year">2024 - Present</span>
-                <h3>News Editor & Journalist</h3>
-                <p>Tanjug</p>
-            </div>
+            <div class="timeline-wrapper">
+                <!-- 1. Tanjug (Gore) -->
+                <div class="timeline-item top" onclick="openModal('tanjug')">
+                    <div class="content">
+                        <span class="year">2024 - Present</span>
+                        <h3>News Editor & Journalist</h3>
+                        <p>Tanjug</p>
+                    </div>
+                    <div class="dot"></div>
+                </div>
 
-            <!-- 2. UNA (Dole) -->
-            <div class="timeline-item bottom" onclick="openModal('una')">
-                <span class="year">2021 - 2024</span>
-                <h3>Deputy Editor</h3>
-                <p>UNA (Regional Broadcaster)</p>
-            </div>
+                <!-- 2. UNA (Dole) -->
+                <div class="timeline-item bottom" onclick="openModal('una')">
+                    <div class="dot"></div>
+                    <div class="content">
+                        <span class="year">2021 - 2024</span>
+                        <h3>Deputy Editor</h3>
+                        <p>UNA (Regional Broadcaster)</p>
+                    </div>
+                </div>
 
-            <!-- 3. Startit (Gore) -->
-            <div class="timeline-item top" onclick="openModal('startit')">
-                <span class="year">2020 - 2021</span>
-                <h3>Multimedia Business Journalist</h3>
-                <p>Startit</p>
-            </div>
+                <!-- 3. Startit (Gore) -->
+                <div class="timeline-item top" onclick="openModal('startit')">
+                    <div class="content">
+                        <span class="year">2020 - 2021</span>
+                        <h3>Multimedia Business Journalist</h3>
+                        <p>Startit</p>
+                    </div>
+                    <div class="dot"></div>
+                </div>
 
-            <!-- 4. Ringier (Dole) -->
-            <div class="timeline-item bottom" onclick="openModal('ringier')">
-                <span class="year">2015 - 2018</span>
-                <h3>Journalist</h3>
-                <p>Ringier Axel Springer</p>
+                <!-- 4. Ringier (Dole) -->
+                <div class="timeline-item bottom" onclick="openModal('ringier')">
+                    <div class="dot"></div>
+                    <div class="content">
+                        <span class="year">2015 - 2018</span>
+                        <h3>Journalist</h3>
+                        <p>Ringier Axel Springer</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Kolaž -->
+    <!-- Portfolio Bento Kolaž -->
     <section id="portfolio" class="container">
         <h2>Portfolio</h2>
         <div class="bento-grid">
             <a href="https://petar92paunovic-png.github.io/serbia-landfills/" target="_blank" class="bento-item item-1">
                 <div class="bento-content">
                     <h3>When Open Data Isn't Enough</h3>
-                    <p>Mapping illegal dumpsites in Serbia using QGIS</p>
+                    <p>Mapping illegal dumpsites and waste management in Serbia using QGIS</p>
                 </div>
             </a>
-            <a href="#" target="_blank" class="bento-item item-2">
+            
+            <a href="https://petar92paunovic-png.github.io/serbia-traffic-safety/" target="_blank" class="bento-item">
                 <div class="bento-content">
-                    <h3>Data-Driven Investigations</h3>
-                    <p>Multi-year financial reports & Python analysis</p>
+                    <h3>Traffic Safety Analysis</h3>
+                    <p>Spatial reporting and data visualization</p>
                 </div>
             </a>
-            <a href="#" target="_blank" class="bento-item item-3">
+
+            <a href="https://noizz.rs/big-stories/noizz-istrazuje-spc-dobila-395-miliona-od-postanskih-marki/ydg7rv7" target="_blank" class="bento-item">
                 <div class="bento-content">
-                    <h3>Newsroom Leadership</h3>
-                    <p>Managing broadcasts and daily outputs</p>
+                    <h3>Noizz Investigation</h3>
+                    <p>How the Serbian Orthodox Church received funding from postage stamps</p>
+                </div>
+            </a>
+
+            <a href="https://noizz.rs/big-stories/balada-o-savskom-nasipu-dragulju-koji-je-postao-tempirana-bomba/9svmbsw" target="_blank" class="bento-item">
+                <div class="bento-content">
+                    <h3>The Sava Embankment Ballad</h3>
+                    <p>Investigating environmental and urban challenges in Belgrade</p>
+                </div>
+            </a>
+
+            <a href="https://startit.rs/kada-bi-svi-automobili-u-srbiji-bili-elektricni-vazduh-bi-i-dalje-bio-zagaden/" target="_blank" class="bento-item">
+                <div class="bento-content">
+                    <h3>Startit: Electric Vehicles</h3>
+                    <p>Data analysis on pollution and green transition in Serbia</p>
+                </div>
+            </a>
+
+            <a href="https://startit.rs/radi-se-na-poreskom-okviru-za-digitalnu-imovinu-i-bice-stimulativan-sef-tima-za-izradu-nacrta-zakona-o-digitalnoj-imovini-za-startit-dnevnik/" target="_blank" class="bento-item">
+                <div class="bento-content">
+                    <h3>Digital Assets Tax Framework</h3>
+                    <p>Exclusive interview and economic policy coverage</p>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=DJtZCQEYhxY&t=100s" target="_blank" class="bento-item">
+                <div class="bento-content">
+                    <h3>Television Broadcast & Reporting</h3>
+                    <p>Video coverage and studio production</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/8DgWW2CpifU" target="_blank" class="bento-item">
+                <div class="bento-content">
+                    <h3>Multimedia Feature</h3>
+                    <p>Video reporting and field coverage</p>
                 </div>
             </a>
         </div>
@@ -98,8 +149,16 @@
     <section id="awards" class="container">
         <h2>Awards & Recognition</h2>
         <ul class="awards-list">
-            <li><strong>First Prize in the Media Award (2021)</strong> – Commissioner for Protection of Equality (In-depth analysis of women’s representation in business)</li>
-            <li><strong>Diploma for Socially Responsible Reporting (2018)</strong> – INTERFER International Media Festival (Feature on children on the autism spectrum)</li>
+            <li>
+                <strong>First Prize in the Media Award (2021)</strong> – 
+                <a href="https://ravnopravnost.gov.rs/" target="_blank" style="color: #38bdf8; text-decoration: none;">Commissioner for Protection of Equality</a> 
+                <br><span style="color: #94a3b8; font-size: 0.9rem;">For an in-depth analysis of women’s representation in business and its impact on economic growth</span>
+            </li>
+            <li style="margin-top: 1rem;">
+                <strong>Diploma for Socially Responsible Reporting (2018)</strong> – 
+                <a href="http://www.interfer.rs/" target="_blank" style="color: #38bdf8; text-decoration: none;">INTERFER International Media Festival</a> 
+                <br><span style="color: #94a3b8; font-size: 0.9rem;">For a feature on children on the autism spectrum</span>
+            </li>
         </ul>
     </section>
 
@@ -108,7 +167,7 @@
         <p>&copy; 2026 Petar Paunović. All rights reserved.</p>
     </footer>
 
-    <!-- Modal Prozorče za Experience -->
+    <!-- Modal Prozorče -->
     <div id="exp-modal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -117,7 +176,7 @@
         </div>
     </div>
 
-    <!-- JavaScript za rad modala -->
+    <!-- JavaScript -->
     <script>
         const experiences = {
             tanjug: {
