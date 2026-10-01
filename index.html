@@ -244,7 +244,6 @@
     <section id="education" class="container">
         <h2>Education & Training</h2>
         
-        <!-- Edukacija (zasebne stavke iznad) -->
         <ul class="awards-list">
             <li>
                 <strong>Lede Program in Data Journalism (2026)</strong> – 
@@ -256,49 +255,109 @@
             </li>
         </ul>
 
-        <!-- 3D Kocka za treninge (Interakcija na hover/pokret miša) -->
         <h3 style="color: #f8fafc; margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.3rem;">Professional Training</h3>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 1rem;">Klikni i prevuci mišem da rotiraš kocku u svim smerovima</p>
         
-        <div class="cube-container">
-            <div class="cube">
-                <!-- Strana 1: Početna / Uvodna -->
+        <div class="cube-container" id="cubeContainer">
+            <div class="cube" id="trainingCube">
                 <div class="cube-face front">
                     <h4>Professional Trainings</h4>
-                    <p style="color: #38bdf8; margin-top: 0.5rem; font-size: 0.85rem;">Zadrži miš iznad kocke i rotiraj je</p>
+                    <p style="color: #38bdf8; margin-top: 0.5rem; font-size: 0.85rem;">Završi krug i istraži sve strane</p>
                 </div>
-                <!-- Strana 2: Trening 1 -->
                 <div class="cube-face right">
                     <h4>Investigative Journalism School</h4>
                     <p style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 0.85rem;">Centre for Investigative Journalism of Serbia (CINS)</p>[cite: 3]
-                    <p style="font-size: 0.8rem; color: #94a3b8;">Napredne metode istraživačkog rada, verifikacija činjenica i rad sa bazama podataka.</p>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">Napredne metode istraživačkog rada i verifikacija činjenica.</p>
                 </div>
-                <!-- Strana 3: Trening 2 -->
                 <div class="cube-face back">
                     <h4>Data Journalism Training</h4>
                     <p style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 0.85rem;">Balkan Investigative Reporting Network (BIRN)</p>[cite: 3]
-                    <p style="font-size: 0.8rem; color: #94a3b8;">Vizuelizacija podataka i pretvaranje složenih baza u razumljive priče.</p>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">Vizuelizacija podataka i rad sa bazama.</p>
                 </div>
-                <!-- Strana 4: Trening 3 -->
                 <div class="cube-face left">
                     <h4>Economic Journalism Programme</h4>
                     <p style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 0.85rem;">Nova Ekonomija</p>[cite: 3]
-                    <p style="font-size: 0.8rem; color: #94a3b8;">Analiza makroekonomskih kretanja, budžeta i poslovnih izveštaja.</p>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">Analiza makroekonomskih kretanja i budžeta.</p>
                 </div>
-                <!-- Strana 5: Trening 4 -->
                 <div class="cube-face top">
                     <h4>Digital Media Campus</h4>
                     <p style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 0.85rem;">Ringier Axel Springer</p>[cite: 3]
-                    <p style="font-size: 0.8rem; color: #94a3b8;">Razvoj digitalnih platformi i strategije rasta online publike.</p>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">Razvoj digitalnih platformi i strategije rasta.</p>
                 </div>
-                <!-- Strana 6: Trening 5 -->
                 <div class="cube-face bottom">
                     <h4>Kosovo School</h4>
                     <p style="color: #38bdf8; margin-bottom: 0.5rem; font-size: 0.85rem;">Heartefact</p>[cite: 3]
-                    <p style="font-size: 0.8rem; color: #94a3b8;">Interkulturni dijalog i regionalne medijske inicijative.</p>
+                    <p style="font-size: 0.8rem; color: #94a3b8;">Interkulturni dijalog i regionalne inicijative.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- JavaScript za slobodnu rotaciju mišem u svim smerovima (360 stepeni) -->
+    <script>
+        const container = document.getElementById('cubeContainer');
+        const cube = document.getElementById('trainingCube');
+
+        let isDragging = false;
+        let startX, startY;
+        let currentX = -25; // Početni nagib
+        let currentY = 15;  // Početni nagib
+
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            container.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            currentY += deltaX * 0.5; // Rotacija levo-desno
+            currentX -= deltaY * 0.5; // Rotacija gore-dole
+
+            cube.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            }
+        });
+
+        // Podrška za touch uređaje (mobilni/tableti)
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+
+            const deltaX = e.touches[0].clientX - startX;
+            const deltaY = e.touches[0].clientY - startY;
+
+            currentY += deltaX * 0.5;
+            currentX -= deltaY * 0.5;
+
+            cube.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
+
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    </script>
 
 <!-- Kontakt Sekcija -->
     <section id="contact" class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
