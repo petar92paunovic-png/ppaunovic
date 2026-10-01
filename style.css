@@ -59,7 +59,7 @@ header {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 3.5rem 2rem 1.5rem 2rem;
+    padding: 2rem 2rem 1.5rem 2rem;
     margin-bottom: 1rem;
 }
 
@@ -188,14 +188,14 @@ h2 {
 }
 
 .timeline-item h3 {
-    font-size: 0.9rem;
+    font-size: 0.10rem;
     color: #f8fafc;
     margin-bottom: 0.1rem;
     line-height: 1.2;
 }
 
 .timeline-item p {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     color: #94a3b8;
     margin: 0;
 }
@@ -240,7 +240,7 @@ h2 {
 .popup-box ul {
     padding-left: 1rem;
     color: #cbd5e1;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .popup-box li {
