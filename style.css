@@ -338,17 +338,14 @@ h2 {
     margin-bottom: 1rem;
 }
 
-/* --- 3D KOCKA ZA TRENINGE (MODERAN HOVER EFEKAT) --- */
+/* --- 3D KOCKA SA SLOBODNOM ROTACIJOM --- */
 .cube-container {
     width: 320px;
     height: 320px;
-    margin: 3rem auto;
+    margin: 2rem auto;
     perspective: 1200px;
     cursor: grab;
-}
-
-.cube-container:active {
-    cursor: grabbing;
+    user-select: none;
 }
 
 .cube {
@@ -356,15 +353,8 @@ h2 {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    /* Početni blagi 3D nagib */
-    transform: rotateX(-15deg) rotateY(25deg);
-    /* Glatka i prirodna tranzicija */
-    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Prelaskom miša kocka se okreće pod uglom pogodnim za čitanje (zadržava 3D dubinu) */
-.cube-container:hover .cube {
-    transform: rotateX(-15deg) rotateY(-35deg);
+    /* Početni ugao da se odmah vidi 3D dubina */
+    transform: rotateX(-25deg) rotateY(15deg);
 }
 
 .cube-face {
@@ -390,7 +380,7 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-/* Raspored 6 strana u 3D prostoru */
+/* Raspored 6 strana */
 .cube-face.front  { transform: rotateY(0deg) translateZ(160px); }
 .cube-face.right  { transform: rotateY(90deg) translateZ(160px); }
 .cube-face.back   { transform: rotateY(180deg) translateZ(160px); }
@@ -398,7 +388,7 @@ h2 {
 .cube-face.top    { transform: rotateX(90deg) translateZ(160px); }
 .cube-face.bottom { transform: rotateX(-90deg) translateZ(160px); }
 
-/* Responzivnost za mobilne uređaje */
+/* Responzivnost */
 @media (max-width: 768px) {
     .cube-container {
         width: 260px;
