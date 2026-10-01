@@ -253,14 +253,30 @@ h2 {
     margin-bottom: 0.4rem;
 }
 
-/* --- BENTO GRID CUSTOM LAYOUT (PREMA SKICI) --- */
+/* --- BENTO GRID SA FIKSNIM POZICIJAMA --- */
 .bento-grid {
     display: grid;
+    /* 3 kolone, i 4 reda fiksne visine od 220px */
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 220px);
     gap: 1.5rem;
-    grid-auto-rows: 180px; /* Osnovna visina reda za precizno uklapanje */
 }
 
+/* Fiksiranje pozicija na osnovu tvojih oznaka */
+.bento-item.v1 { grid-column: 1; grid-row: 1 / span 2; } /* Visoka levo gore */
+.bento-item.v2 { grid-column: 3; grid-row: 3 / span 2; } /* Visoka desno dole */
+
+.bento-item.h1 { grid-column: 2 / span 2; grid-row: 1; } /* Široka 1 (gore desno) */
+.bento-item.h2 { grid-column: 1 / span 2; grid-row: 3; } /* Široka 2 (sredina levo) */
+.bento-item.h3 { grid-column: 2 / span 2; grid-row: 4; } /* Široka 3 (dole desno) */
+
+.bento-item.s1 { grid-column: 2; grid-row: 2; } /* Mala 1 */
+.bento-item.s2 { grid-column: 1; grid-row: 3; } /* Mala 2 */
+.bento-item.s3 { grid-column: 1; grid-row: 4; } /* Mala 3 */
+.bento-item.s4 { grid-column: 2; grid-row: 3; } /* Mala 4 */
+.bento-item.s5 { grid-column: 2; grid-row: 4; } /* Mala 5 (ili prilagodi po potrebi) */
+
+/* Osnovni stilovi kartice */
 .bento-item {
     position: relative;
     background-color: #1e293b;
@@ -273,27 +289,6 @@ h2 {
     flex-direction: column;
     justify-content: flex-end;
     transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-/* Specifične pozicije sa skice */
-.bento-item.item-v-1 {
-    grid-row: span 2; /* 1. Deponija - visoka */
-}
-
-.bento-item.item-v-2 {
-    grid-row: span 2; /* 2. Nastić - visoka */
-}
-
-.bento-item.item-h-3 {
-    grid-column: span 2; /* 3. Saobraćaj - široka */
-}
-
-.bento-item.item-h-4 {
-    grid-column: span 2; /* 4. Nasip - široka */
-}
-
-.bento-item.item-h-5 {
-    grid-column: span 2; /* 5. Vašar - široka */
 }
 
 .bento-item:hover {
@@ -315,7 +310,7 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Overlay efekat sa klizanjem teksta */
+/* Overlay i tekst efekt */
 .bento-overlay {
     position: absolute;
     bottom: 0;
@@ -354,29 +349,18 @@ h2 {
     opacity: 1;
 }
 
-/* Prilagođavanje za manje ekrane */
+/* Responzivnost za telefone i tablete (automatski prelazi u jednostavniji redosled da se ne slomi) */
 @media (max-width: 900px) {
     .bento-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 200px;
+        grid-template-rows: auto;
     }
-    .bento-item.item-v-1,
-    .bento-item.item-v-2,
-    .bento-item.item-h-3,
-    .bento-item.item-h-4,
-    .bento-item.item-h-5 {
-        grid-column: span 1;
-        grid-row: span 1;
+    .bento-item {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        aspect-ratio: 16/10;
     }
 }
-
-@media (max-width: 600px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 220px;
-    }
-}
-
 /* Nagrade */
 .awards-list {
     list-style: none;
