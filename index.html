@@ -294,6 +294,83 @@
             </div>
         </div>
     </section>
+    /* --- 3D KOCKA ZA TRENINGE --- */
+.cube-container {
+    width: 300px;
+    height: 300px;
+    margin: 4rem auto;
+    perspective: 1000px;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Kada miš pređe preko kocke, ona se okreće da pokaže druge strane */
+.cube-container:hover .cube {
+    transform: rotateX(-35deg) rotateY(220deg);
+}
+
+.cube-face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #1e293b;
+    border: 2px solid #38bdf8;
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backface-visibility: hidden;
+}
+
+.cube-face h4 {
+    color: #f8fafc;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.cube-face p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Raspored 6 strana u 3D prostoru (kocka je 300x300, pa je translacija 150px) */
+.cube-face.front  { transform: rotateY(0deg) translateZ(150px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(150px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(150px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(150px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(150px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+/* Responzivnost za manje ekrane (da se smanji kocka na telefonima) */
+@media (max-width: 768px) {
+    .cube-container {
+        width: 250px;
+        height: 250px;
+    }
+    .cube-face {
+        width: 250px;
+        height: 250px;
+        padding: 1.5rem;
+    }
+    .cube-face.front  { transform: rotateY(0deg) translateZ(125px); }
+    .cube-face.back   { transform: rotateY(180deg) translateZ(125px); }
+    .cube-face.right  { transform: rotateY(90deg) translateZ(125px); }
+    .cube-face.left   { transform: rotateY(-90deg) translateZ(125px); }
+    .cube-face.top    { transform: rotateX(90deg) translateZ(125px); }
+    .cube-face.bottom { transform: rotateX(-90deg) translateZ(125px); }
+}
 
 <!-- Kontakt Sekcija -->
     <section id="contact" class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
